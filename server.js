@@ -9,7 +9,7 @@ const app = require("./app");
 mongoose
   .connect('mongodb://0.0.0.0:27017/tour-management', {
     useNewUrlParser: true,
-    // useUnifiedTopology: true,
+    useUnifiedTopology: true,
   })
   .then(() => {
     console.log(`Database connection is successful 🛢`.red.bold);

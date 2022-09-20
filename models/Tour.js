@@ -1,10 +1,11 @@
 const mongoose = require("mongoose");
+
 // schema design
 const tourSchema = mongoose.Schema(
   {
     name: {
       type: String,
-      required: [true, "Please provide a Name for this tour."],
+      required: [true, "Please provide a valid Name for this tour."],
       trim: true,
       unique: [true, "Name must be unique"],
       minLength: [3, "Name must be at least 3 characters."],

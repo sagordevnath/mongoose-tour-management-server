@@ -7,10 +7,12 @@ const {
   getTrendingToursService,
 } = require("../services/tour.services");
 
+// get all tours
 exports.getTours = async (req, res, next) => {
   try {
-    //Filters Starts
 
+    //Filters 
+    
     let filters = { ...req.query };
 
     const excludeFields = ["sort", "page", "limit", "fields"];
@@ -25,8 +27,8 @@ exports.getTours = async (req, res, next) => {
     filters = JSON.parse(filtersString);
 
     //Filters Ends
-    //---------------------------------------------------------------------------------------------
-
+    
+    //------------------------------//
 
     //Query Starts
 
@@ -78,6 +80,7 @@ exports.getTours = async (req, res, next) => {
   }
 };
 
+// add new tour
 exports.createTour = async (req, res, next) => {
   try {
     // save or create
@@ -96,6 +99,7 @@ exports.createTour = async (req, res, next) => {
   }
 };
 
+// get single tour
 exports.getTourById = async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -114,6 +118,7 @@ exports.getTourById = async (req, res, next) => {
   }
 };
 
+// update single tour
 exports.updateTourById = async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -133,6 +138,7 @@ exports.updateTourById = async (req, res, next) => {
   }
 };
 
+// get trending tours
 exports.getTrendingTours = async (req, res, next) => {
   try {
     const tours = await getTrendingToursService();
@@ -150,6 +156,7 @@ exports.getTrendingTours = async (req, res, next) => {
   }
 };
 
+// get cheapest tours
 exports.getCheapestTours = async (req, res, next) => {
   try {
     const tours = await getCheapestToursService();
